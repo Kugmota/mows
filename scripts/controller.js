@@ -3,10 +3,10 @@
 //broker
 var btnConnect = document.getElementById('connect');
 var btnDisConnect = document.getElementById('disconnect');
-var broker = document.getElementById('broker').value;
+var broker = document.getElementById('broker');
 var btnStatus = document.getElementById('status');
 var li = document.createElement('li');
-
+var text = document.createTextNode('');
 
 //publisher
 var btnPublish = document.getElementById('btnPublish');
@@ -20,58 +20,66 @@ var btnUnsubscribe = document.getElementById('btnUnsubscribe');
 
 
 //btnConnect
-btnConnect.addEventListener('click', function(e) {
+btnConnect.addEventListener('click', function (e) {
   e.preventDefault();
-//client
-var client = mqtt.connect(broker)
-  client.subscribe("mqtt/demox")
+  //client
+  var client = mqtt.connect(broker.value)
+  // client.subscribe("mqtt/demox")
 
-  // btnSubscribe.addEventListener('click',function(e){
-  //   e.preventDefault();
-  //   client.subscribe("mqtt/" + subTopic.value);
-  //   console.log("mqtt/" + subTopic.value)
-  // })
+  btnSubscribe.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log("mqtt/" + subTopic.value)
+    client.subscribe("mqtt/" + subTopic.value);
+  })
 
+  btnUnsubscribe.addEventListener('click',function(e){
+    e.preventDefault();
+    client.unsubscribe("mqtt/" + subTopic.value);
+    console.log("Unsubscribe to mqtt/" + subTopic.value)
+  })
 
   client.on("connect", function () {
     console.log("Successfully connected");
     btnStatus.disabled = false;
     btnDisConnect.disabled = false;
     btnConnect.disabled = true;
-    btnStatus.setAttribute('value','Successfully Connected!')
-    btnStatus.setAttribute('class','btn btn-success')
+    btnStatus.setAttribute('value', 'Successfully Connected!')
+    btnStatus.setAttribute('class', 'btn btn-success')
   });
 
-//btnDisconnect
-  btnDisConnect.addEventListener('click', function(){
+
+  //btnDisconnect
+  btnDisConnect.addEventListener('click', function () {
     client.end();
     btnStatus.disabled = true;
     btnDisConnect.disabled = true;
     btnConnect.disabled = false;
     console.log('Disconnected');
-    btnStatus.setAttribute('value','Successfully Disconnected!')
-    btnStatus.setAttribute('class','btn btn-warning')
+    btnStatus.setAttribute('value', 'Successfully Disconnected!')
+    btnStatus.setAttribute('class', 'btn btn-warning')
   });
-  
-  // client.on("message", function (topic, payload) {
-  //   console.log([topic, payload].join(": "));
-  //   // client.end();
-  // })
+
+
+  client.on("message", function (topic, payload) {
+    console.log([topic, payload].join(": "));
+    var timeStamp = new Date();
+    console.log(timeStamp);
+    // var ul = document.getElementByTagName('UL')
+    // li.innerHTML = payload;
+    // ul.appendChild(li);
+  })
 
   // client.publish("mqtt/demox", "hello world!")
 
-  btnPublish.addEventListener('click',function(e){
+  btnPublish.addEventListener('click', function (e) {
     e.preventDefault();
-    // console.log('test')
-    client.on("message", function (pubTopic, pubPayload) {
-      console.log([pubTopic, pubPayload].join(": "));
-      // client.end();
+      client.publish("mqtt/" + pubTopic.value, pubPayload.value)
     })
   });
-  client.publish(pubTopic, pubPayload)
 
 
-});
+
+// });
 
 
 
