@@ -28,11 +28,15 @@ btnConnect.addEventListener('click', function (e) {
     e.preventDefault();
     console.log("mqtt/" + subTopic.value)
     client.subscribe("mqtt/" + subTopic.value);
+    btnUnsubscribe.disabled = false;
+    btnSubscribe.disabled = true;
   })
 
   btnUnsubscribe.addEventListener('click', function (e) {
     e.preventDefault();
     client.unsubscribe("mqtt/" + subTopic.value);
+    btnUnsubscribe.disabled = true;
+    btnSubscribe.disabled = false;
     console.log("Unsubscribe to mqtt/" + subTopic.value)
   })
 
