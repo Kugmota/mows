@@ -5,8 +5,6 @@ var btnConnect = document.getElementById('connect');
 var btnDisConnect = document.getElementById('disconnect');
 var broker = document.getElementById('broker');
 var btnStatus = document.getElementById('status');
-var li = document.createElement('li');
-var text = document.createTextNode('');
 
 //publisher
 var btnPublish = document.getElementById('btnPublish');
@@ -32,7 +30,7 @@ btnConnect.addEventListener('click', function (e) {
     client.subscribe("mqtt/" + subTopic.value);
   })
 
-  btnUnsubscribe.addEventListener('click',function(e){
+  btnUnsubscribe.addEventListener('click', function (e) {
     e.preventDefault();
     client.unsubscribe("mqtt/" + subTopic.value);
     console.log("Unsubscribe to mqtt/" + subTopic.value)
@@ -61,26 +59,33 @@ btnConnect.addEventListener('click', function (e) {
 
 
   client.on("message", function (topic, payload) {
-    console.log([topic, payload].join(": "));
-    var timeStamp = new Date();
-    console.log(timeStamp);
-    // var ul = document.getElementByTagName('UL')
-    // li.innerHTML = payload;
-    // ul.appendChild(li);
+    let finalTopic = topic.slice(5);
+    console.log([finalTopic, payload].join(": "));
+    let tbl = document.getElementById('receiver');
+    let tbody = document.getElementById('msg');
+    let tr = document.createElement('tr');
+    let msgTopic = document.createElement('td');
+    let msgPayload = document.createElement('td');
+    let msgTime = document.createElement('td');
+    msgTopic.appendChild(document.createTextNode(finalTopic));
+    msgPayload.appendChild(document.createTextNode(payload));
+    msgTime.appendChild(document.createTextNode(moment().format('llll')));
+    tr.appendChild(msgTopic);
+    tr.appendChild(msgPayload);
+    tr.appendChild(msgTime);
+    tbody.appendChild(tr);
+    tbl.appendChild(tbody);
+    // $('.broker tbody').append("<tr><td>" + finalTopic + "</td><td>" + payload + "</td><td>" + moment().format('llll') + "</td></tr>");
+
   })
 
   // client.publish("mqtt/demox", "hello world!")
 
   btnPublish.addEventListener('click', function (e) {
     e.preventDefault();
-      client.publish("mqtt/" + pubTopic.value, pubPayload.value)
-    })
-  });
-
-
-
-// });
-
+    client.publish("mqtt/" + pubTopic.value, pubPayload.value)
+  })
+});
 
 
 
