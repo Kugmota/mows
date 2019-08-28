@@ -15,7 +15,7 @@
 
   <!-- Icons Grid -->
   <section class="features-icons bg-light ">
-    <div class="container-fluid">
+    <div class="container text-center">
       <div class="row">
 
         <div class="col-lg-4">
@@ -25,7 +25,7 @@
           <input id="disconnect" class="btn btn-primary" type="button" value="Disconnect" disabled><br><br>
           Status: <input id="status" class="btn btn-default" type="button" value="..........................................."
             disabled><br><br>
-          <table id="receiver" class="table table-bordered table-hover ">
+          <!-- <table id="receiver" class="table table-bordered table-hover ">
             <thead class="thead-light">
               <th>Topic</th>
               <th>Payload</th>
@@ -34,7 +34,7 @@
             <tbody id="msg">
 
             </tbody>
-          </table>
+          </table> -->
         </div>
 
         <div class="col-lg-4">
@@ -42,7 +42,7 @@
           Topic: <input id="pubTopic" type="text"><br><br>
           Payload: <input id="pubPayload" type="text"><br><br>
           <input id="btnPublish" class="btn btn-primary" type="button" value="Publish">
-          <br>
+          <!-- <br>
           <br>
           <table class="table table-bordered table-hover">
             <thead class="thead-light">
@@ -53,7 +53,7 @@
             <tbody>
 
             </tbody>
-          </table>
+          </table> -->
         </div>
 
         <div class="col-lg-4">
@@ -61,7 +61,7 @@
           Topic: <input id="subTopic" type="text"><br><br>
           <input id="btnSubscribe" class="btn btn-primary" type="button" value="Subscribe">
           <input id="btnUnsubscribe" class="btn btn-primary" type="button" value="Unsubscribe" disabled>
-          <br>
+          <!-- <br>
           <br>
           <table class="table table-bordered table-hover">
             <thead class="thead-light">
@@ -71,8 +71,21 @@
             </thead>
             <tbody>
             </tbody>
-          </table>
+          </table> -->
         </div>
+
+      </div>
+      <table id="receiver" class="table  table-hover ">
+        <thead class="thead-dark">
+          <th>Topic</th>
+          <th>Payload</th>
+          <th>Time Stamp</th>
+        </thead>
+        <tbody id="msg">
+
+        </tbody>
+      </table>
+      <div class="row">
 
       </div>
     </div>
