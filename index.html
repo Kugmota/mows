@@ -4,50 +4,52 @@
   <title>mows</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 
-<body>
-  <div class="jumbotron text-center" style="background-color:lightblue;">
-    <h1>MQTT</h1>
-    <p>My MQTT Web App</p>
+<body style="background-image: url('data:image/jpeg;base64,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')">
+    <div class="jumbotron text-center" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLrQK7I-TGYuEEOMKS1Gt8O6pqAY0ih42tVhplauDsLPmAQbbg1Q)">
+      <h1>                                               .</h1>
+    <h5>                                                                     .</h5>
   </div>
 
   <!-- Icons Grid -->
   <section class="features-icons bg-light ">
-    <div class="container text-center" style="background-color:paleturquoise;">
+    <div class="container text-center" style="background-color:deepskyblue;">
       <div class="row">
 
-        <div class="col-lg-4" style="border:darkgreen;">
+        
+          <div class="col-lg-4" style="border-style: inset;">
+              <h1>Publish</h1>
+              Topic: <input id="pubTopic" type="text"><br><br>
+              Payload: <input id="pubPayload" type="text"><br><br>
+              <input id="btnPublish" class="btn btn-primary" type="button" value="Publish">
+            </div>
+        <!-- <div > -->
+        <div class="col-lg-4" style="border-style:inset; ">
           <h1>Broker</h1>
           Address: <input id="broker" type="text" value="ws://broker.hivemq.com:8000/mqtt"><br><br>
-          <input id="connect" class="btn btn-primary" type="button" value="Connect">
-          <input id="disconnect" class="btn btn-primary" type="button" value="Disconnect" disabled><br><br>
-          Status: <input id="status" class="btn btn-default" type="button" value="Just Wait.........."
-            disabled><br><br>
+          <input id="connect" class="btn btn-primary" type="button" value="Connect" onclick="MyConnect()">
+          <input id="disconnect" class="btn btn-primary" type="button" value="Disconnect" onclick="MyDisconnect()" disabled><br><br>
+          Status: <input id="status" class="btn btn-default" type="button" value="Just Wait.........." disabled><br><br>
           
         </div>
-
-        <div class="col-lg-4" style="padding-top: 150px;">
-          <h1>Publish</h1>
-          Topic: <input id="pubTopic" type="text"><br><br>
-          Payload: <input id="pubPayload" type="text"><br><br>
-          <input id="btnPublish" class="btn btn-primary" type="button" value="Publish">
-        
+        <!-- </div> -->
        
-        </div>
-        
 
-        <div class="col-lg-4">
+
+        <div class="col-lg-4" style="border-style: inset;">
           <h1>Subscribe</h1>
           Topic: <input id="subTopic" type="text"><br><br>
           <input id="btnSubscribe" class="btn btn-primary" type="button" value="Subscribe">
           <input id="btnUnsubscribe" class="btn btn-primary" type="button" value="Unsubscribe" disabled>
-         
+
         </div>
 
       </div>
       <br><br>
+      
       <table id="receiver" class="table  table-hover ">
         <thead class="thead-dark">
           <th>Topic</th>
@@ -58,15 +60,22 @@
 
         </tbody>
       </table>
+    
       <div class="row">
 
       </div>
     </div>
+    <br><br>
+    <div class="jumbotron text-center" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLrQK7I-TGYuEEOMKS1Gt8O6pqAY0ih42tVhplauDsLPmAQbbg1Q)">
+      <h1 style="color:deepskyblue;">                                                                                         . </h1>
+      <h5 style="color:deepskyblue;">                                                                                           .  </h5>
+    </div>
   </section>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="scripts/browserMqtt.js"></script>
   <script src="scripts/controller.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script> -->
 
 </body>
 

@@ -5,6 +5,12 @@ var btnConnect = document.getElementById('connect');
 var btnDisConnect = document.getElementById('disconnect');
 var broker = document.getElementById('broker');
 var btnStatus = document.getElementById('status');
+function MyConnect(){
+  alert("You are now successfully connected in MQTT!");
+}
+function MyDisconnect(){
+  alert("You are now successfully disconnected from MQTT!");
+}
 
 //publisher
 var btnPublish = document.getElementById('btnPublish');
@@ -41,11 +47,11 @@ btnConnect.addEventListener('click', function (e) {
   })
 
   client.on("connect", function () {
-    console.log("Successfully connected");
+    console.log("You are successfully connected");
     btnStatus.disabled = false;
     btnDisConnect.disabled = false;
     btnConnect.disabled = true;
-    btnStatus.setAttribute('value', 'Successfully Connected!')
+    btnStatus.setAttribute('value', 'You are successfully Connected!')
     btnStatus.setAttribute('class', 'btn btn-success')
   });
 
